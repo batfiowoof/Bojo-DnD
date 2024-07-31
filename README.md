@@ -1,4 +1,4 @@
-# Character Card Project
+# Bojo's DnD Web Application
 
 This project is a React application that displays character cards with various attributes, hit points, and equipment.
 
