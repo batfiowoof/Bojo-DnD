@@ -63,3 +63,57 @@ body {
   font-size: 1.2em;
   line-height: 1.6;
 }
+
+.character-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 2px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.character-card h2 {
+  flex: 1 1 100%;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.character-image {
+  flex: 1 1 100%;
+  margin-bottom: 10px;
+}
+
+.character-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.character-container {
+  display: flex;
+  gap: 10px; /* Adjusts space between the cards */
+  flex-wrap: wrap; /* Allows the containers to wrap to the next line if needed */
+}
+
+.hit-points {
+  flex: 1 1 100%;
+  margin-bottom: 20px;
+}
+
+.attributes,
+.equipment {
+  flex: 1 1 30%; /* Adjusts the flex basis to make the containers smaller */
+  margin: 5px; /* Reduces the margin to make the containers fit better */
+  width: 30%; /* Ensures the containers are smaller and display next to each other */
+  box-sizing: border-box; /* Ensures padding and border are included in the width and height */
+}
+
+.attributes h3,
+.equipment h3 {
+  margin-bottom: 5px; /* Reduces the margin below the headers */
+}
