@@ -6,6 +6,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #121212; /* Dark background for the whole page */
   color: #bb9f9f; /* Light grey text */
+  text-align: center;
 }
 
 /* Header Styles */
@@ -47,6 +48,22 @@ body {
 .header img {
   width: 50px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
+}
+
+/* Text Only Button Styles */
+.textOnly {
+  background: none;
+  border: none;
+  color: #bb9f9f; /* Light grey text */
+  font-size: 1em;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.textOnly:hover {
+  color: #ffffff; /* Change text color on hover */
 }
 
 /* Home Page Styles */
