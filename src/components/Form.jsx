@@ -11,7 +11,7 @@ export function Form() {
 
     const formData = new FormData(e.target);
     const character = Object.fromEntries(formData.entries());
-
+    console.log(character);
     axios
       .post("http://localhost:5000/api/characters", character)
       .then((response) => console.log("Character created:", response.data))
@@ -43,6 +43,7 @@ export function Form() {
           )}
         </select>
       </div>
+
       {error && <p className="error-message">{error.message}</p>}
 
       {subraces.length > 0 && (
@@ -50,7 +51,12 @@ export function Form() {
           <label className="form-label" htmlFor="subrace">
             Subrace:
           </label>
-          <select name="subrace" id="subrace" className="form-input">
+          <select
+            name="subrace"
+            id="subrace"
+            className="form-input"
+            htmlFor="subrace"
+          >
             {subraces.map((subrace) => (
               <option key={subrace.index} value={subrace.index}>
                 {subrace.name}
@@ -59,8 +65,19 @@ export function Form() {
           </select>
         </div>
       )}
+      <div className="form-group">
+        <label htmlFor="level">Starting level:</label>
+        <input
+          type="number"
+          name="level"
+          id="level"
+          className="form-input"
+          min="1"
+          max="20"
+        />
+      </div>
       <button type="submit" className="form-button" disabled={loading}>
-        Create Character
+        {">"}
       </button>
     </form>
   );
