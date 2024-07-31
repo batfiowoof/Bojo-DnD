@@ -3,6 +3,7 @@ export default function CharacterCard({ character }) {
   return (
     <div className="character-card">
       <h2>{character.name}</h2>
+      <h3>Level {character.level}</h3>
       <div className="hit-points">
         <h3>Hit Points</h3>
         <p>{character.hitPoints}</p>
