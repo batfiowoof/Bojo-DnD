@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #121212; /* Dark background for the whole page */
+  color: #bb9f9f; /* Light grey text */
+}
+
+/* Header Styles */
+.header {
+  background-color: #333; /* Dark grey background */
+  padding: 20px;
+  color: #bb9f9f; /* Light grey text */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav a {
+  color: #bb9f9f; /* Light grey text */
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #1e90ff; /* Light blue on hover */
+}
+
+.header img {
+  width: 50px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Home Page Styles */
+.home {
+  padding: 40px;
+}
+
+.home h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.home p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
