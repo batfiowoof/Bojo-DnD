@@ -1,47 +1,22 @@
-import { useEffect, useState, useCallback } from "react";
+import useRaces from "../hooks/useRace";
 import axios from "axios";
 import Input from "./Input";
 
-export function Form({ onSubmit }) {
-  const [races, setRaces] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [selectedRace, setSelectedRace] = useState("");
-  const [subraces, setSubraces] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get("https://www.dnd5eapi.co/api/races")
-      .then((response) => {
-        setRaces(response.data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+export function Form() {
+  const { loading, selectedRace, subraces, error, races, handleRaceChange } =
+    useRaces();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit();
-  };
 
-  const handleRaceChange = useCallback((e) => {
-    setSelectedRace(e.target.value);
-    setLoading(true);
+    const formData = new FormData(e.target);
+    const character = Object.fromEntries(formData.entries());
+
     axios
-      .get(`https://www.dnd5eapi.co/api/races/${e.target.value}/subraces`)
-      .then((response) => {
-        setSubraces(response.data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+      .post("http://localhost:5000/api/characters", character)
+      .then((response) => console.log("Character created:", response.data))
+      .catch((error) => console.error("Error creating character:", error));
+  };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
@@ -68,6 +43,8 @@ export function Form({ onSubmit }) {
           )}
         </select>
       </div>
+      {error && <p className="error-message">{error.message}</p>}
+
       {subraces.length > 0 && (
         <div className="form-group">
           <label className="form-label" htmlFor="subrace">
@@ -82,7 +59,7 @@ export function Form({ onSubmit }) {
           </select>
         </div>
       )}
-      <button type="submit" className="form-button">
+      <button type="submit" className="form-button" disabled={loading}>
         Create Character
       </button>
     </form>
