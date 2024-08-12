@@ -9,7 +9,7 @@ export default function CharacterCard({ character }) {
         <p>{character.hitPoints}</p>
       </div>
       <div className="character-image">
-        <img src={character.image.logo} alt={`${character.name}`} />
+        <img src={character.image} alt={`${character.name}`} />
       </div>
       <div className="attributes">
         <h3>Attributes</h3>

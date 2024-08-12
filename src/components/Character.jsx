@@ -9,9 +9,13 @@ export default function Character() {
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/characters")
-      .then((response) => setCharacters(response.data))
+      .then((response) => {
+        setCharacters(response.data);
+      })
       .catch((error) => console.error("Error fetching characters:", error));
   }, []);
+
+  console.log(characters);
 
   return (
     <div>
